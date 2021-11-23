@@ -7,7 +7,7 @@ try:
         port=3306,
         user='sensor',
         password='sensor',
-        db='sensores'
+        db='sensors'
     )    
     try:
         if conexion.is_connected():

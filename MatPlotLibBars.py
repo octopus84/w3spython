@@ -1,16 +1,18 @@
-import sys
-import matplotlib
-matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.array(["A", "B", "C", "D"])
-y = np.array([3, 8, 1, 10])
+plt.style.use('_mpl-gallery')
 
-plt.bar(x, y, color = "red")
+# make data
+x = np.linspace(0, 10, 100)
+y = 4 + 2 * np.sin(2 * x)
+
+# plot
+fig, ax = plt.subplots() 
+
+ax.plot(x, y, linewidth=2.0)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
 plt.show()
-
-#Two  lines to make our compiler able to draw:
-plt.savefig(sys.stdout.buffer)
-sys.stdout.flush()

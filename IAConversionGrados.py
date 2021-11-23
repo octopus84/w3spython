@@ -1,13 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 #red neuronal con Tensorflow
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 celsius= np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)
 fahrenheit= np.array([-40, 14, 32, 46, 59, 72, 100], dtype=float)
 
-#framework keras
+#Framework keras
 #permite programar red neuronal rapida
 
 # capa tipo Densa ,  
@@ -25,3 +26,7 @@ modelo.compile(
 print("Comienza entrenamiento...")
 historial = modelo.fit(celsius, fahrenheit, epochs =1000, verbose=False)
 print("Entrenamiento Terminado!!!")
+
+plt.xlabel("#Epoca")
+plt.ylabel("Magnitud de pérdida")
+plt.plot(historial.history["loss"])
